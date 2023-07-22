@@ -3,7 +3,7 @@ import React from "react";
 export default function Card() {
   return (
     <div className="card mt-3" style={{ width: "18rem", maxHeight: "360px" }}>
-      <img className="card-img-top" src="..." alt="Card image cap" />
+      <img className="card-img-top" src="..." alt="Card cap" />
       <div className="card-body">
         <h5 className="card-title">Card title</h5>
         <p className="card-text">card's content.</p>
