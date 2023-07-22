@@ -59,7 +59,7 @@ const Carousel = () => {
           </div>
           <div className="carousel-item">
             <img
-              src="https://source.unsplash.com/random/900x700/?taco"
+              src="https://source.unsplash.com/random/900x700/?cake"
               className="d-block w-100"
               alt="..."
             />
