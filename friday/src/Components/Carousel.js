@@ -30,7 +30,7 @@ const Carousel = () => {
             aria-label="Slide 3"
           ></button>
         </div>
-        <div className="carousel-inner">
+        <div className="carousel-inner" id="carousells">
           <div className="carousel-item active" data-bs-interval="10000">
             <img
               src="https://source.unsplash.com/random/900x700/?burger"

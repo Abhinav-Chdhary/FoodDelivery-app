@@ -11,7 +11,7 @@ export default function Home() {
         <Navbar />
       </div>
       <div>
-        <Carousel />
+        <Carousel id="CaroCaro" />
       </div>
       <div className="m-3">
         <Card />
