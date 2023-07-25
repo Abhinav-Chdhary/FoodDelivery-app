@@ -20,9 +20,13 @@ export default function Signup() {
         name: credentials.name,
         email: credentials.email,
         password: credentials.password,
-        geolocation: credentials.geolocation,
+        location: credentials.geolocation,
       }),
     });
+    const json = await response.json();
+    console.log(json);
+
+    if (!json.success) alert("Enter Valid Credentials");
   };
   const onChangeHandler = (event) => {
     setcredentials({ ...credentials, [event.target.name]: event.target.value });
@@ -32,7 +36,7 @@ export default function Signup() {
     <div className="container">
       <form>
         <div className="form-group">
-          <label for="name">Name</label>
+          <label htmlFor="name">Name</label>
           <input
             type="text"
             className="form-control"
@@ -43,7 +47,7 @@ export default function Signup() {
           />
         </div>
         <div className="form-group">
-          <label for="exampleInputEmail1">Email address</label>
+          <label htmlFor="exampleInputEmail1">Email address</label>
           <input
             type="email"
             className="form-control"
@@ -59,7 +63,7 @@ export default function Signup() {
           </small>
         </div>
         <div className="form-group">
-          <label for="exampleInputPassword1">Password</label>
+          <label htmlFor="exampleInputPassword1">Password</label>
           <input
             type="password"
             className="form-control"
@@ -71,7 +75,7 @@ export default function Signup() {
           />
         </div>
         <div className="form-group">
-          <label for="location">Location</label>
+          <label htmlFor="location">Location</label>
           <input
             type="text"
             className="form-control"

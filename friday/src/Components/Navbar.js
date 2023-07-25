@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Signup from "../screens/Signup";
 
 export default function Navbar() {
   return (
