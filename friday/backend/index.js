@@ -23,7 +23,7 @@ app.use(express.json());
 /*express.json() is a built-in
 middleware function in Express.*/
 
-app.use("/api", require("./Routes/CreateUser"));
+app.use("/api", require("./Routes/SignInSignUp"));
 app.get("/", (req, res) => {
   res.send("Hello world");
 });
