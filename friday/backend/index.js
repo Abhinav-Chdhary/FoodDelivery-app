@@ -24,6 +24,8 @@ app.use(express.json());
 middleware function in Express.*/
 
 app.use("/api", require("./Routes/SignInSignUp"));
+app.use("/api", require("./Routes/DisplayData"));
+
 app.get("/", (req, res) => {
   res.send("Hello world");
 });

@@ -8,7 +8,17 @@ const mongoDB = async () => {
     console.log("Connected to MongoDB");
     const fetched_data = await mongoose.connection.db.collection("food_items");
     const finalFetchedData = await fetched_data.find().toArray();
-    //console.log(finalFetchedData);
+    //using global variables
+
+    const fetchedFoodCategory = await mongoose.connection.db
+      .collection("food_category")
+      .find()
+      .toArray();
+
+    global.food_items = finalFetchedData;
+    global.food_categories = fetchedFoodCategory;
+    //console.log(fetchedFoodCategory);
+
     /* await fetched_data.find().toArray(function (err, data) {
       if (err) {
         console.error("Error retrieving data:", err);
