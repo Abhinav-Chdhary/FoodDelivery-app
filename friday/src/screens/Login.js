@@ -25,7 +25,11 @@ export default function Login() {
     console.log(json);
 
     if (!json.success) alert("Enter Valid Credentials");
-    else navigate("/");
+    else {
+      localStorage.setItem("authToken", json.authToken);
+      //console.log(localStorage.getItem("authToken"));
+      navigate("/");
+    }
   };
   const onChangeHandler = (event) => {
     setcredentials({ ...credentials, [event.target.name]: event.target.value });
