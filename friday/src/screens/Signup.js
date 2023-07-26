@@ -11,9 +11,10 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = fetch("http://localhost:5000/createuser", {
+
+    const response = await fetch("http://localhost:5000/api/createuser", {
       method: "POST",
-      header: {
+      headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -23,6 +24,7 @@ export default function Signup() {
         location: credentials.geolocation,
       }),
     });
+
     const json = await response.json();
     console.log(json);
 
@@ -34,7 +36,7 @@ export default function Signup() {
 
   return (
     <div className="container">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name</label>
           <input
@@ -86,11 +88,7 @@ export default function Signup() {
           />
         </div>
         <hr />
-        <button
-          type="submit"
-          className="btn btn-success"
-          onSubmit={handleSubmit}
-        >
+        <button type="submit" className="btn btn-success">
           Submit
         </button>
         <Link to="/login" className="m-3 btn btn-danger">
