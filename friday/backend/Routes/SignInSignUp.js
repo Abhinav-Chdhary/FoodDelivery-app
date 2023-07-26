@@ -4,7 +4,9 @@ const User = require("../models/User");
 const { body, validationResult } = require("express-validator");
 
 const bcrypt = require("bcryptjs");
-
+const jwt = require("jsonwebtoken");
+const JWT_SECRET = "tfuhtlpzhiopuhchukaopzdlizpalpzn";
+//for creating user
 router.post(
   "/createuser",
   [
@@ -35,7 +37,7 @@ router.post(
     }
   }
 );
-
+//for logging in
 router.post(
   "/loginuser",
   [
@@ -53,10 +55,21 @@ router.post(
       if (!userData) {
         return res.status(400).json({ errors: "Incorrect credentials" });
       }
-      if (!(req.body.password === userData.password))
-        return res.status(400).json({ errors: "Incorrect credentials" });
+      const pwdCompare = await bcrypt.compare(
+        req.body.password,
+        userData.password
+      );
+      if (!pwdCompare)
+        return res.status(400).json({ errors: "second Incorrect credentials" });
+      //send jwt token
+      const data = {
+        user: {
+          id: userData.id,
+        },
+      };
+      const authToken = jwt.sign(data, JWT_SECRET);
 
-      return res.json({ success: true });
+      return res.json({ success: true, authToken: authToken });
     } catch (err) {
       console.log(err);
       res.json({ success: false });
