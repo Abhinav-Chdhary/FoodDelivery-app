@@ -37,19 +37,6 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
-      <div className="container-fluid d-flex justify-content-end">
-        <form className="d-flex">
-          <input
-            className="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button className="btn btn-outline-success bg-black" type="submit">
-            Search
-          </button>
-        </form>
-      </div>
     </nav>
   );
 }

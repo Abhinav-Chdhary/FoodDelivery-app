@@ -32,6 +32,20 @@ export default function Home() {
       <div>
         <Navbar />
       </div>
+      <div className="container-fluid d-flex justify-content-end">
+        <form className="d-flex">
+          <input
+            className="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            value={search}
+            onChange={(e) => {
+              setsearch(e.target.value);
+            }}
+          />
+        </form>
+      </div>
       <div>
         <Carousel id="CaroCaro" />
       </div>
@@ -46,7 +60,11 @@ export default function Home() {
                 <hr />
                 {foodItem !== [] ? (
                   foodItem
-                    .filter((item) => item.CategoryName === data.CategoryName)
+                    .filter(
+                      (item) =>
+                        item.CategoryName === data.CategoryName &&
+                        item.name.toLowerCase().includes(search)
+                    )
                     .map((filterItems) => {
                       return (
                         <div
